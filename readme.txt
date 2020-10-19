@@ -2,7 +2,7 @@ X= feito
 / = metade feito
 
 A FAZER
-decidir se mantem em ingles ou pt
+decidir se mantem em ingles ou pt = pt X
 
 html:
 canva  X
@@ -17,5 +17,5 @@ chamar a classe do jogo
 
 classe jogo da vida.js:
 lógica do jogo
-variaveis(2 arrays 2d vazios)
-funções
+variaveis(2 arrays vazios) X
+funções 
