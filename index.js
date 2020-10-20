@@ -1,17 +1,23 @@
-/*a fazer 
-html:
-canva
-células começando em lugares aleatórios
-botão começar e parar
+const canvas = document.querySelector("#campoDoJogo")
+const contexto_canvas = canvas.getContext("2d")
 
-css:
-tudo
 
-index.js:
-chamar a classe do jogo
+const jogo = new JogoDaVida()
+jogo.jogoSetup();
 
-classe jogo da vida.js:
-lógica do jogo
-variaveis(2 arrays vazios)
-funções
-*/ 
+
+window.onload = () => {
+
+    document.querySelector("#comece_aleatorio").addEventListener("click", () => {
+        jogo.arrayAleatorio();
+        jogo.arrayPreencher();
+        window.setInterval(() => {
+            jogo.jogoIniciar();
+        }, 300)
+    })
+
+    document.querySelector("#pare").addEventListener("click", () => {
+        jogo.jogoSetup();
+    })
+
+}

@@ -10,12 +10,12 @@ células começando em lugares aleatórios
 botão começar e parar X
 
 css:
-tudo  / 
+tudo  X
 
 index.js:
-chamar a classe do jogo
+chamar a classe do jogo X
 
 classe jogo da vida.js:
-lógica do jogo
+lógica do jogo /
 variaveis(2 arrays vazios) X
-funções 
+funções  /
