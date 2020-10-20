@@ -16,8 +16,30 @@ class JogoDaVida{
         this.array_inativo=[];
 
 
-
+        this.array_iniciar = () => {
+            // vai preencher os arrays com zeros 
+            for (let i = 0; i < this.celulas_em_linhas; i++) {
+                this.array_ativo[i] = [];
+                for (let j = 0; j < this.celulas_em_colunas; j++) {
+                   this.array_ativo[i][j] = 0;
+                }
+             }
+             this.array_ativo = this.array_ativo;
+        };
         
+        this.array_aleatorio = () => {
+
+        };
+
+        this.array_preencher = () => {
+
+        };
+
+        this.contar_vizinhos = () => {
+
+        };
+
+    
        
     }
 
