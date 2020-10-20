@@ -24,11 +24,17 @@ class JogoDaVida{
                    this.array_ativo[i][j] = 0;
                 }
              }
-             this.array_ativo = this.array_ativo;
+             this.array_inativo = this.array_ativo;
         };
         
         this.array_aleatorio = () => {
+            for (let i = 0; i < this.celulas_em_linhas; i++){
+                for (let j= 0; j< this.celulas_em_colunas; j++){
+                    // loop no array ativo e atribuindo valores um ou \ero pra cada celula aleatoriamente
+                    this.array_ativo[i][j] = (Math.random() > 0.5) ? 1 : 0; 
 
+                }
+            }
         };
 
         this.array_preencher = () => {
