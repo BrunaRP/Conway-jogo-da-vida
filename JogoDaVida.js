@@ -3,11 +3,11 @@ class JogoDaVida{
     constructor() {
         this.celula_tamanho = 5;
         this.cor_morta='#181818';
-        this.cor_viva='#FF75GB';
+        this.cor_viva= '#483D8B';
         
         //matematica pra contar quantas linhas e colunas preciso com o numero colocado como tamanho de celula
         //floor arredonda o numero
-        this.celulas_em_colunas= Math.floor(canvas.widht/this.celula_tamanho);
+        this.celulas_em_colunas= Math.floor(canvas.width/this.celula_tamanho);
         this.celulas_em_linhas= Math.floor(canvas.height/this.celula_tamanho);
 
         //array que guarda o estado do ciclo de vida atual
@@ -15,8 +15,10 @@ class JogoDaVida{
         //array que guarda o estado do ciclo de vida anterior
         this.array_inativo=[];
 
+
+        // vai preencher os arrays com zeros 
         this.arrayIniciar = () => {
-            // vai preencher os arrays com zeros 
+            console.log("array iniciado vazio");
             for (let i = 0; i < this.celulas_em_linhas; i++) {
                 this.array_ativo[i] = [];
                 for (let j = 0; j < this.celulas_em_colunas; j++) {
@@ -24,22 +26,25 @@ class JogoDaVida{
                 }
              }
              this.array_inativo = this.array_ativo;
+
         };
         
+        // loop no array ativo e atribuindo com 50% de chance os valores um ou \ero pra cada celula aleatoriamente
         this.arrayAleatorio = () => {
+            console.log("começando vivo aleatorio");
             for (let i = 0; i < this.celulas_em_linhas; i++){
                 for (let j= 0; j< this.celulas_em_colunas; j++){
-                    // loop no array ativo e atribuindo com 50% de chance os de valores um ou \ero pra cada celula aleatoriamente
                     this.array_ativo[i][j] = (Math.random() > 0.5) ? 1 : 0; 
                 }
             }
         };
 
+        // //dá cor e uma localização pra cada celula baseada no seu estado color
         this.arrayPreencher = () => {
             for (let i = 0; i < this.celulas_em_linhas; i++) {
                 for (let j = 0; j < this.celulas_em_colunas; j++) {
                      let cor;
-                     if (this.active_array[i][j] == 1)
+                     if (this.array_ativo[i][j] == 1)
                          cor = this.cor_viva;
                      else
                          cor = this.cor_morta;
@@ -48,23 +53,85 @@ class JogoDaVida{
                      contexto_canvas.fillRect(j * this.celula_tamanho, i * this.celula_tamanho, this.celula_tamanho, this.celula_tamanho);
                 }
             }
+            console.log("array preenchido");
         };
 
-        this.contarVizinhos = () => {
+       //função que lida com indices negativos e indices maiores que o tamanho do array. "tente pegar o valor [-1][-1] do array ativo. Vc pode? Beleza, não pode? me retorna zero no lugar.
+        this.setValorCelula = (linhas, colunas) => {
+            console.log("set valor celula");
+            try {
+                return this.array_ativo[linhas][colunas];
+            }
+            catch {
+                return 0;
+             }
+             
+        }; 
 
+        // função que ajuda a que contar os vizinhos. Pro atualizarValorCelula não ficar gigante já que ele tem as regras de negócio do jogo.
+        this.contaVizinhos = (linhas, colunas) => {
+            console.log("conta vizinhos 1");
+            let total_vizinhos = 0;
+            //contando vizinhos uma linha pra cima
+            total_vizinhos += this.setValorCelula(linhas - 1, colunas - 1);
+            total_vizinhos += this.setValorCelula(linhas - 1, colunas);
+            total_vizinhos += this.setValorCelula(linhas - 1, colunas + 1);
+            //na mesma linha
+            total_vizinhos += this.setValorCelula(linhas, colunas - 1);
+            total_vizinhos += this.setValorCelula(linhas, colunas + 1);
+            // contando uma linha pra baixo
+            total_vizinhos += this.setValorCelula(linhas + 1, colunas - 1);
+            total_vizinhos += this.setValorCelula(linhas + 1, colunas);
+            total_vizinhos += this.setValorCelula(linhas + 1, colunas + 1);
+            console.log("conta vizinhos 2");
+            return total_vizinhos;
+            
         };
 
+        
+        this.atualizarValorCelula = (linhas, colunas) => {
+            const total = this.contaVizinhos(linhas, colunas);
+            console.log("atualizar valor celula");
+                // celula com mais de 4 e menos que 3 vizinhos morre. 1 => 0; 0 => 0.
+                if (total > 4 || total < 3) {
+                    console.log("if celula");
+                    return 0;
+                    
+                }
+                // celula morta com 3 vizinhos revive. 0 => 1
+                else if (this.array_ativo[linhas][colunas] === 0 && total === 3) {
+                    console.log("else if celula");
+                    return 1;
+                }
+                // ou retornar seu status de volta. 0 => 0; 1 => 1   <<<< ?
+                else {
+                    console.log("else celula");
+                    return this.array_ativo[linhas][colunas];
+                }
+        };
+
+
+        //looping por todas a celulas, retornando o novo estado para a celula especifica, e trocando o seu valor para o array_inativo. Depois que o loop termina, o array_inativo volta volta a ficar ativo.
+        this.atualizarCicloVida = () => {
+            console.log("atualizar ciclo de vida");
+            for (let i = 0; i < this.celulas_em_linhas; i++) {
+                for (let j = 0; j < this.celulas_em_colunas; j++) {
+                    let novo_estado = this.atualizarValorCelula(i, j);
+                    this.array_inativo[i][j] = novo_estado;
+                }
+            }
+            this.arry_ativo = this.array_inativo;
+        };
+        
 
         this.jogoSetup = () => {
             this.arrayIniciar();
         };
 
         this.jogoIniciar = () => {
+            this.atualizarCicloVida();
             this.arrayPreencher();
         };
-        
-
     
-       
     }
 }

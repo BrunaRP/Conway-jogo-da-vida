@@ -1,14 +1,12 @@
 const canvas = document.querySelector("#campoDoJogo")
 const contexto_canvas = canvas.getContext("2d")
 
-
 const jogo = new JogoDaVida()
-jogo.jogoSetup();
-
+jogo.jogoSetup()
 
 window.onload = () => {
 
-    document.querySelector("#comece_aleatorio").addEventListener("click", () => {
+    document.querySelector("#comece-aleatorio").addEventListener("click", () => {
         jogo.arrayAleatorio();
         jogo.arrayPreencher();
         window.setInterval(() => {
