@@ -1,8 +1,7 @@
 class JogoDaVida{
 
     constructor() {
-       //tentativa de não precisar mudar aqui o tamanho mas sim pelo input que o usuario der
-        this.celula_tamanho = tamanho_celula;
+        this.celula_tamanho = 5;
         
         this.cor_morta='#05618a';
         this.cor_viva= '#e8eaea';
@@ -94,7 +93,7 @@ class JogoDaVida{
         this.atualizarValorCelula = (linhas, colunas) => {
             const total = this.contaVizinhos(linhas, colunas);
             
-                // celula com mais de 4 e menos que 3 vizinhos morre. 1 => 0; 0 => 0.
+                // celula com mais de 3 e menos que 2 vizinhos morre. 1 => 0; 0 => 0.
                 if (total > 4 || total < 3) {
                     return 0;
                     
