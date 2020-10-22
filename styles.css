@@ -20,9 +20,9 @@ h1{
     font-weight: 300;
 }
 
-/*#campoDoJogo {
-   background:gray;
-} /*
+#campoDoJogo {
+   background:#05618a
+}
 
 /*seleciona todos os elementos com a classe "botoes-div"  
 onde onde o pai é uma <div> */

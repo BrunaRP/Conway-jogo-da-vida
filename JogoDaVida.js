@@ -1,8 +1,10 @@
 class JogoDaVida{
 
     constructor() {
-        this.celula_tamanho = 5;
-        this.cor_morta='#05618a ';
+       //tentativa de não precisar mudar aqui o tamanho mas sim pelo input que o usuario der
+        this.celula_tamanho = tamanho_celula;
+        
+        this.cor_morta='#05618a';
         this.cor_viva= '#e8eaea';
         
         //matematica pra contar quantas linhas e colunas preciso com o numero colocado como tamanho de celula
