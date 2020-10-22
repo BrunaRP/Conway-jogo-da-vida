@@ -30,7 +30,7 @@ class JogoDaVida{
 
         };
         
-        // loop no array ativo e atribuindo com 50% de chance os valores um ou \ero pra cada celula aleatoriamente
+        // loop no array ativo e atribuindo com 50% de chance os valores um ou zero pra cada célula aleatoriamente
         this.arrayAleatorio = () => {
             console.log("começando vivo aleatorio");
             for (let i = 0; i < this.celulas_em_linhas; i++){
@@ -40,7 +40,7 @@ class JogoDaVida{
             }
         };
 
-        // //dá cor e uma localização pra cada celula baseada no seu estado color
+        //dá cor e uma localização pra cada celula baseada no seu estado color
         this.arrayPreencher = () => {
             for (let i = 0; i < this.celulas_em_linhas; i++) {
                 for (let j = 0; j < this.celulas_em_colunas; j++) {
@@ -57,7 +57,7 @@ class JogoDaVida{
             console.log("array preenchido");
         };
 
-       //função que lida com indices negativos e indices maiores que o tamanho do array. "tente pegar o valor [-1][-1] do array ativo. Vc pode? Beleza, não pode? me retorna zero no lugar.
+       //função que lida com índices negativos e índices maiores que o tamanho do array. "tente pegar o valor [-1][-1] do array ativo. Vc pode? Beleza, não pode? me retorna zero no lugar.
         this.setValorCelula = (linhas, colunas) => {
             
             try {
@@ -94,7 +94,7 @@ class JogoDaVida{
             const total = this.contaVizinhos(linhas, colunas);
             
                 // celula com mais de 3 e menos que 2 vizinhos morre. 1 => 0; 0 => 0.
-                if (total > 4 || total < 3) {
+                if (total > 4 || total < 3 ) {
                     return 0;
                     
                 }
