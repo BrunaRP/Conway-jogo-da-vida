@@ -1,11 +1,19 @@
+/*
+#05618a botao azul clarinho
+#022231 fundo azul escuro
+#e8eaea texto branco
+#ffbe1b amarelo
+*/
+
 *{
     text-align: center;
-    background-color: #181818;
+    background-color:#022231;
 }
+
 
 h1{
     font-size: 40px;
-    color: white;
+    color: #e8eaea;
     margin: 0px;
     margin-top: 15px;
     font-family: 'Roboto', sans-serif;
@@ -19,12 +27,14 @@ h1{
 /*seleciona todos os elementos com a classe "botoes-div"  
 onde onde o pai é uma <div> */
 .botoes-div>button{
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: #ffbe1b;
     font-size: 18px;
+    font-family: 'Roboto', sans-serif;
     padding: 10px;
     border: none;
-    border-radius: 10px;
+    border-radius: 50px;
     margin: 20px;
     font-weight: 300;
     outline: none;
+
 }
