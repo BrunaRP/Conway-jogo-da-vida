@@ -13,6 +13,9 @@ As regras são:
 + Qualquer célula morta com exatamente três vizinhos vivos se torna uma célula viva.
 + Qualquer célula viva com dois ou três vizinhos vivos continua no mesmo estado para a próxima geração.
 
+### Como jogar
+
+Download do código -> descompacte o arquivo -> abra a pasta -> webpages -> index.html
 
 ### 🛠 Tecnologias
 
