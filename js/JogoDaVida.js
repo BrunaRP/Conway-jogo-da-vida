@@ -40,7 +40,7 @@ class JogoDaVida{
             }
         };
 
-        //dá cor e uma localização pra cada celula baseada no seu estado color
+        //dá cor e uma localização pra cada celula baseada no seu estado (1- ativo, 0-inativo)
         this.arrayPreencher = () => {
             for (let i = 0; i < this.celulas_em_linhas; i++) {
                 for (let j = 0; j < this.celulas_em_colunas; j++) {
@@ -69,7 +69,7 @@ class JogoDaVida{
              
         }; 
 
-        // função que ajuda a que contar os vizinhos. Pro atualizarValorCelula não ficar gigante já que ele tem as regras de negócio do jogo.
+        // função que ajuda a que contar os vizinhos de uma celula. Pro atualizarValorCelula não ficar gigante já que ele tem as regras de negócio do jogo.
         this.contaVizinhos = (linhas, colunas) => {
             
             let total_vizinhos = 0;
