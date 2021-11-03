@@ -1,6 +1,5 @@
 # Jogo da vida
 
-Website desenvolvido para o processo seletivo da Captalys. 
 
 ## Sobre
 Trata-se de um simples website que executa o jogo autônomo (zero-player) desenvolvido pelo matemático britânico John Horton Conway em 1970. 
