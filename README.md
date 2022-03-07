@@ -26,6 +26,6 @@ Download do código -> descompacte o arquivo -> abra a pasta -> webpages -> inde
 </h4>
 
 
-x-special/nautilus-clipboard
-copy
-file:///home/bruna/%C3%81rea%20de%20Trabalho/ConwayJogoDaVida.mp4
+
+https://user-images.githubusercontent.com/18310007/157095827-8eea17f9-90cc-4207-b7a5-44fb108a3b4e.mp4
+
