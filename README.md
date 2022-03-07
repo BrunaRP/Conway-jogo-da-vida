@@ -24,3 +24,8 @@ Download do código -> descompacte o arquivo -> abra a pasta -> webpages -> inde
 <h4 align="center">
 	✅ Finalizado ✅
 </h4>
+
+
+x-special/nautilus-clipboard
+copy
+file:///home/bruna/%C3%81rea%20de%20Trabalho/ConwayJogoDaVida.mp4
